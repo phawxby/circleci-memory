@@ -1,0 +1,29 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.0
+
+jobs:
+  test-node:
+    parameters:
+      node-version:
+        type: string
+    working_directory: ~/jest
+    executor: node/default
+    parallelism: 4
+    steps:
+      - checkout
+      - node/install:
+          node-version: << parameters.node-version >>
+      - run:
+          command: node info.js
+
+# Workflows enables us to run multiple jobs in parallel
+workflows:
+  build-and-deploy:
+    jobs:
+      - test-node:
+          name: test-node-partial-<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: ['14', '16', '18']
