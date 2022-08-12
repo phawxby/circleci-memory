@@ -1,0 +1,8 @@
+{
+  "name": "circleci-memory",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/phawxby/circleci-memory.git",
+  "author": "Paul Hawxby <phawxby@gmail.com>",
+  "license": "MIT"
+}
