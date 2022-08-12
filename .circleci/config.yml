@@ -22,6 +22,14 @@ jobs:
       - checkout
       - run:
           command: node info.js
+  test-node-mac:
+    macos:
+      xcode: 12.5.1
+
+    steps:
+      - checkout
+      - run:
+          command: node info.js
 
 
 # Workflows enables us to run multiple jobs in parallel
@@ -35,3 +43,5 @@ workflows:
               node-version: ['14', '16', '18']
       - test-node-windows:
           name: test-node-windows
+      - test-node-mac:
+          name: test-node-mac
