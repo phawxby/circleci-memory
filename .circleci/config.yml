@@ -29,7 +29,7 @@ workflows:
   build-and-deploy:
     jobs:
       - test-node-linux:
-          name: test-node-partial-<< matrix.node-version >>
+          name: test-node-<< matrix.node-version >>
           matrix:
             parameters:
               node-version: ['14', '16', '18']
