@@ -40,5 +40,8 @@ console.log({
     totalMemFormatted: humanFileSize(os.totalmem()),
     freeMem: os.freemem(),
     freeMemFormatted: humanFileSize(os.freemem()),
-    cpus: os.cpus().length
+    cpus: os.cpus().length,
+    envs: {
+      ...process.env
+    }
 })
